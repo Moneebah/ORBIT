@@ -1,0 +1,5 @@
+results_stats_dic = {'pct_ne':20, 'n_me' : 30, 'pct_u':90}
+
+for k in results_stats_dic:
+    if 'pct_' in k:
+        print(f' {k} : {results_stats_dic[k]}% ')

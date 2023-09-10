@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #170955;
+}
+
+#cesiumContainer {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#infoBoxes {
+    position: absolute;
+    z-index: 2;
+
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 100px;
+
+    margin-bottom: 10px;
+    top: 0;
+    right: 0;
+    width: 25%;
+
+    padding: 5px;
+    overflow: hidden;
+    margin: 1%;
+    /* Make the boxes scrollable if the content is too large */
+}
+
+
+.signup-container {
+    position: absolute;
+    z-index: 3;
+    /*Ensure that the container is above everything else*/
+    right: 10px;
+    /*Position it at the right, you can modify this*/
+    bottom: 10px;
+    left: 0;
+    padding-bottom: 70px;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    /*Position it at the bottom, you can modify this*/
+}
+
+.signup {
+
+    padding: 9px 25px;
+    background-image: linear-gradient(to right, #344eb9, #307ac3, #15bcd1, #15bcd1, #307ac3, #344eb9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: 300%;
+    background-position: left;
+    transition: 0.3s background-position ease-in-out;
+    position: relative;
+    /* Relative to its parent */
+    z-index: 2;
+    /* Ensure it's above the caesium object */
+    color: white;
+    left: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    /* So that the text can be seen on the gradient background */
+}
+
+.signup:hover {
+    background-position: right;
+}
+
+#infoBox {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 7%;
+    font-size: 90%;
+    padding: 20px;
+}
+
+#infoBox h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+#canvas {
+    position: absolute;
+    z-index: 2;
+
+
+
+    top: 10%;
+    right: 0;
+    width: 25%;
+
+
+    padding: 5px;
+    color: #DFE0E2;
+    overflow: auto;
+    margin: 1%;
+    height: 100%;
+}
+
+#infoBox,
+#econChart,
+#gcfChart {
+    background-color: #170955;
+    border-radius: 10px;
+    border: 1px solid #9ac0d9;
+    width: 100%;
+}
+
+#gdpChart {
+    background-color: #6564DB;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#econChart {
+    width: 95%;
+    height: 20%;
+}
+
+#sectorContainer,
+#canvas2 {
+    background-color: #170955;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    width: 25%;
+    height: 15%;
+    border: 1px solid #9ac0d9;
+    padding: 5px;
+    color: #DFE0E2;
+    overflow: auto;
+    margin: 1%;
+}
+
+#canvas2 {
+    top: 50%;
+    height: 30%;
+    border: 1px solid #edf0f1;
+
+}
+
+#sectorG {
+    top: 22%;
+    width: 25%;
+    height: 25%;
+    background-color: #170955;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    color: #DFE0E2;
+    margin: 1%;
+    /* Increase height according to your needs */
+}
+
+#sectorGraph {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Make it full height */
+    border: 1px solid #9ac0d9;
+    padding: 5px;
+    color: #DFE0E2;
+    overflow: auto;
+    background-color: #170955;
+    border-radius: 10px;
+    position: relative;
+}
+
+#sectorContainer {
+    height: 19%;
+}
+
+#invChart {
+    left: 0;
+    width: 100%;
+    height: 69%;
+    /* Make it full height */
+    color: #DFE0E2;
+    overflow: auto;
+    background-color: #170955;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* (previous content) */
+
+.title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: #edf0f1;
+    margin-bottom: 10px;
+}
+
+#sectorDropdown {
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    background-color: #1a0b5f;
+    border: none;
+    margin-bottom: 10px;
+}
+
+#indicatorButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#indicatorButtons button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #edf0f1;
+    background-color: #1a0b5f;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#indicatorButtons button:hover {
+    color: #edf0f1;
+    border: 1px solid #edf0f1;
+}
+
+.selected-button {
+    border: 1px solid #170955;
+    /* Dark purple color */
+    background-color: #edf0f1;
+    /* White color */
+    color: #170955;
+    /* Dark purple color */
+}
+
+#indicatorButtons button:not(.selected-button):hover {
+    color: #edf0f1;
+    border: 1px solid #edf0f1;
+}
+
+#sectorDropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"><polygon points="0,0 20,0 10,20"/></svg>') no-repeat;
+    background-color: #1a0b5f;
+    background-position-x: 98%;
+    background-position-y: 50%;
+    background-size: 20px;
+
+}
+
+
+.subtext {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    color: #edf0f1;
+    text-align: center;
+}
+
+/* Other styles above... */
+
+#canvas {
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    right: 0;
+    width: 25%;
+    padding: 5px;
+    color: #DFE0E2;
+    overflow: auto;
+    margin: 1%;
+    height: 100%;
+}
+
+#infoBox,
+#econChart,
+#gcfChart {
+    background-color: #170955;
+    border-radius: 10px;
+    border: 1px solid #9ac0d9;
+    width: 100%;
+    height: 25%;
+    margin: 10px 0;
+    /* Provide margin to separate charts */
+}
+
+#gdpChart {
+    background-color: #6564DB;
+    border-radius: 10px;
+    width: 100%;
+    height: 25%;
+    margin: 10px 0;
+    /* Provide margin to separate charts */
+}
+
+#econChart {
+    right: 0;
+    width: 100%;
+    height: 25%;
+    color: #DFE0E2;
+    overflow: auto;
+    background-color: #170955;
+    border-radius: 10px;
+    position: relative;
+}
+
+#gcfChart {
+    height: 25%;
+}
+
+#infoBoxes {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 15%;
+    padding: 5px;
+    color: #DFE0E2;
+    overflow: auto;
+    margin: 1%;
+}
+
+#infoBox {
+    background-color: #170955;
+    border-radius: 10px;
+    border: 1px solid #9ac0d9;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    color: #edf0f1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#infoBoxes,
+#countryName {
+    overflow: hidden;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ORBIT</title>
+    <script src="app.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+    <!--Dashboard divs-->
+    <div id="wrapper">
+        <div id="cesiumContainer"></div>
+
+
+        <div id="infoBoxes">
+
+            <div id="infoBox">
+                <h1 id="countryName"></h1>
+            </div>
+        </div>
+
+
+        <div id="canvas">
+            <svg id="gdpChart"></svg>
+            <svg id="econChart"></svg>
+            <svg id="gcfChart"></svg>
+        </div>
+
+
+
+
+        <!-- Place this where you want the dropdown and buttons to appear -->
+
+        <div id="sectorContainer">
+            <h2 class="title">Sectors</h2>
+
+            <select id="sectorDropdown">
+                <!-- Options will be added dynamically -->
+            </select>
+            <div id="indicatorButtons">
+                <!-- Buttons will be added dynamically -->
+            </div>
+        </div>
+
+        <div id="sectorG">
+            <svg id="sectorGraph"></svg>
+            <!-- Graph will be rendered here -->
+        </div>
+        <div id="canvas2">
+            <h2 class="title">Investments</h2>
+            <svg id="invChart"></svg>
+        </div>
+
+        <div id="wrapper">
+            <a href="public/form.html" class="signup-container"><button class="signup">Invest Now</button> </a>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        // Initialize the Cesium Ion
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlMWFiOGIzNi1kMTI5LTRiNWItYTA5My02YThmOWM5ZDU5NjQiLCJpZCI6MTQzOTEzLCJpYXQiOjE2ODU3MjA3NDh9.xjbGqf5nERMANPlYAd4PzpmXdEFC1vvPnqxNiD3PwqY'
+        // Initialize the Cesium Viewer
+        var viewer = new Cesium.Viewer('cesiumContainer', {
+            skyBox: false,
+            skyAtmosphere: false,
+            animation: false,
+            baseLayerPicker: false,
+
+        });
+        viewer.clockViewModel.shouldAnimate = true;
+        viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#170955');  /* Change to your desired color */
+        viewer.scene.screenSpaceCameraController.enableZoom = false;
+
+
+
+        // Handle clicks on the globe
+        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+        handler.setInputAction(function (event) {
+            var ray = viewer.camera.getPickRay(event.position);
+            var intersection = viewer.scene.globe.pick(ray, viewer.scene);
+
+
+
+            if (intersection) {
+                var position = Cesium.Ellipsoid.WGS84.cartesianToCartographic(intersection);
+                if (position) {
+                    var longitude = Cesium.Math.toDegrees(position.longitude);
+                    var latitude = Cesium.Math.toDegrees(position.latitude);
+
+
+
+                    // Fetch the country name using the Geonames API
+                    fetch(`https://secure.geonames.org/countryCode?lat=${latitude}&lng=${longitude}&username=muni&type=json`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            return response.json()
+                        })
+                        .then(data => {
+                            if (data.countryName !== undefined) {
+                                document.getElementById('countryName').innerText = `Country: ${data.countryName}`;
+                                document.getElementById('infoBox').style.display = 'block'; // Show the country info box
+                                document.getElementById('canvas').style.display = 'block'; // Show the canvas for chart
+
+                                // Fly the camera to the selected country
+                                viewer.camera.flyTo({
+                                    destination: Cesium.Cartesian3.fromDegrees(longitude, latitude, 20000000) // 20,000 km above the selected point
+                                });
+
+
+                                //DASHBOARDS
+                                // Call the resize function whenever the window size changes
+                                d3.select(window).on('resize', resize);
+
+                                // Fetch and display the GDP data for the selected country
+                                // Fetch and display the GDP data for the selected country
+                                displayGDP(data.countryCode);
+                                displayEconData(data.countryCode);
+                                displayGrossCapitalFormation(data.countryCode);
+                                displayInvestmentData(data.countryCode);
+
+                                // Fetch the sectors and their indicators data
+                                fetchSectors(data.countryCode);  // Pass the country code to the fetchSectors function
+                                // Pass the country code to the fetchSectors function
+                                fetchSectorData(data.countryCode, 'AGR', 'NV.AGR.TOTL.ZS');
+                                resize();
+
+
+                            } else {
+                                document.getElementById('countryName').innerText = '';
+                                document.getElementById('infoBox').style.display = 'none'; // Hide the country info box
+                                document.getElementById('canvas').style.display = 'none'; // Hide the canvas for chart
+                            }
+                        })
+                        .catch(e => {
+                            console.log('There was a problem with the fetch operation: ' + e.message);
+                        });
+                }
+            }
+        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #1a0b5f;
+    font-family: "Montserrat", sans-serif;
+}
+
+/*nav bar styling starts*/
+
+.logo{
+    height: 70px;
+}
+
+li,
+a,
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    /*10px on top and bottom, 5% on both sides*/
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+.signup {
+    padding: 9px 25px;
+    background-image: linear-gradient(to right, #344eb9, #307ac3, #15bcd1, #15bcd1, #307ac3, #344eb9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: 300%;
+    background-position: left;
+    transition: 0.3s background-position ease-in-out;
+    /*the last 3 are for the gradient changing effect on the button*/
+}
+
+.signup:hover {
+    background-position: right;
+}
+
+/*nav bar styling ends*/
+
+
+
+
+/*overall structure of divs styling starts*/
+
+.heading {
+    max-width: 100%;
+    padding: 0px 15%;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 8px;
+    color: #0ac6d4;
+    letter-spacing: 1px;
+}
+
+h2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.headingtext{
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 26px;
+}
+
+.maincontent{
+    display: flex;
+    padding: 5px 5%;
+
+}
+
+.faqimg{
+    height: 450px;
+    max-width: 55%;
+    margin-left: 5%;
+
+}
+
+.faqcontent{
+    max-width: 45%;
+    padding: 55px 0px;
+    margin-left: 10%;
+} 
+
+/*overall strcuture of divs styling ends*/
+
+
+/*faq content styling starts*/
+.faqcontent{
+    color: #fff;
+}
+
+#accordion {
+    max-width: 570px;
+    margin: 0 auto;
+}
+
+.menu {
+    border: 1px solid #008080;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: -3px -3px 10px rgba(255, 255, 255, 0.5), 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu:last-child {
+    border-bottom: 1px solid #008080;
+}
+
+.header {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 7px;
+    font-weight: 600;
+}
+
+.title {
+    flex: 1;
+}
+
+.icon {
+    width: 20px;
+}
+
+.content {
+    max-height: 0;
+    transition: max-height 1s ease-out;
+    overflow: hidden;
+    position: relative;
+    padding-left: 1rem;
+    background-color: #38369a;
+    margin: 7px 10px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+.content-transition {
+    max-height: 1500px;
+    transition: max-height 3s ease-in;
+}
+
+p {
+    margin: 10px;
+}
+
+.ans{
+    background-color: #38369a;
+}
+
+.panel {
+    display: none;
+    margin-top: 30px;
+}
+
+.show {
+    display: block;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 9px 22px;
+    background-image: linear-gradient(to right, #344eb9, #307ac3, #15bcd1, #15bcd1, #307ac3, #344eb9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: 300%;
+    background-position: left;
+    transition: 0.3s background-position ease-in-out;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-position: right;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    width: .6rem;
+    height: 90%;
+    background-color: #E2EAFC;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+
+/*faq content styling ends*/
+
+
+/*animations*/
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+/* animation text-focus-in*/
+ @-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  
+  

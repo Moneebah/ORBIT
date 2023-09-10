@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #1a0b5f;
+}
+
+/*nav bar styling starts*/
+
+.logo {
+    height: 70px;
+}
+
+li,
+a,
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    /*10px on top and bottom, 5% on both sides*/
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+.signup {
+    padding: 9px 25px;
+    background-image: linear-gradient(to right, #344eb9, #307ac3, #15bcd1, #15bcd1, #307ac3, #344eb9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: 300%;
+    background-position: left;
+    transition: 0.3s background-position ease-in-out;
+    /*the last 3 are for the gradient changing effect on the button*/
+}
+
+.signup:hover {
+    background-position: right;
+}
+
+/*nav bar styling ends*/
+
+/*home_content section styling starts*/
+
+.home_content {
+    padding: 13px 10%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.hometext {
+    width: 50%;
+    margin-top: 110px;
+}
+
+.title {
+    color: #edf0f1;
+    font-size: 52px;
+    font-family: "Montserrat", sans-serif;
+    padding-bottom: 25px;
+}
+
+p {
+    color: #edf0f1;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+
+}
+
+span {
+    font-style: italic;
+    color: #7ca3fc;
+}
+
+.tryit {
+    margin-top: 47px;
+    padding: 9px 25px;
+    background-image: linear-gradient(to right, #344eb9, #307ac3, #15bcd1, #15bcd1, #307ac3, #344eb9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: 300%;
+    background-position: left;
+    transition: 0.3s background-position ease-in-out;
+}
+
+.tryit:hover {
+    background-position: right;
+}
+
+/*home_content section styling ends*/
+
+footer{
+    margin: 0px 10%;
+    justify-content: center;
+    height: 100px;
+    background-color: #1a0b5f;
+
+}
+
+footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    list-style: none;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+footer li {
+    margin-top: 50px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+footer li i {
+    color: #fff;
+    margin-right: 5px;
+}
+
+/*animations*/
+
+/*for the title span text*/
+.text-shadow-pop-tl {
+    -webkit-animation: text-shadow-pop-tl 1s both;
+    animation: text-shadow-pop-tl 1s both;
+}
+
+/*animation text-shadow-pop-tl*/
+@-webkit-keyframes text-shadow-pop-tl {
+    0% {
+        text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555,
+            0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+        -webkit-transform: translateX(0) translateY(0);
+        transform: translateX(0) translateY(0);
+    }
+
+    100% {
+        text-shadow: -1px -1px #555555, -2px -2px #555555,
+            -3px -3px #555555, -4px -4px #555555, -5px -5px #555555,
+            -6px -6px #555555, -7px -7px #555555, -8px -8px #555555;
+        -webkit-transform: translateX(8px) translateY(8px);
+        transform: translateX(8px) translateY(8px);
+    }
+}
+
+@keyframes text-shadow-pop-tl {
+    0% {
+        text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555,
+            0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+        -webkit-transform: translateX(0) translateY(0);
+        transform: translateX(0) translateY(0);
+    }
+
+    100% {
+        text-shadow: -1px -1px #555555, -2px -2px #555555,
+            -3px -3px #555555, -4px -4px #555555, -5px -5px #555555,
+            -6px -6px #555555, -7px -7px #555555, -8px -8px #555555;
+        -webkit-transform: translateX(8px) translateY(8px);
+        transform: translateX(8px) translateY(8px);
+    }
+}
+
+/*to grab attention for the button*/
+.heartbeat {
+    -webkit-animation: heartbeat 3s steps(5, end) 5s 30 both;
+    animation: heartbeat 3s steps(5, end) 5s 30 both;
+}
+
+/*animation heartbeat*/
+@-webkit-keyframes heartbeat {
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    10% {
+        -webkit-transform: scale(0.91);
+        transform: scale(0.91);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    17% {
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    33% {
+        -webkit-transform: scale(0.87);
+        transform: scale(0.87);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    45% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes heartbeat {
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    10% {
+        -webkit-transform: scale(0.91);
+        transform: scale(0.91);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    17% {
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    33% {
+        -webkit-transform: scale(0.87);
+        transform: scale(0.87);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+    45% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+}

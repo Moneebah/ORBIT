@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #1a0b5f;
+}
+
+/*nav bar styling starts*/
+
+.logo {
+    height: 70px;
+}
+
+li,
+a,
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    /*10px on top and bottom, 5% on both sides*/
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+.signup {
+    padding: 9px 25px;
+    background-image: linear-gradient(to right, #344eb9, #307ac3, #15bcd1, #15bcd1, #307ac3, #344eb9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: 300%;
+    background-position: left;
+    transition: 0.3s background-position ease-in-out;
+    /*the last 3 are for the gradient changing effect on the button*/
+}
+
+.signup:hover {
+    background-position: right;
+}
+
+/*nav bar styling ends*/
+
+.featurecontent {
+    display: flex;
+    justify-content: center;
+    margin: 2% 7%;
+    max-height: 500px;
+}
+
+.textportion {
+    margin-left: 15%;
+    margin-top: 10%;
+    width: 500px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+.desc{
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+}
+
+.contact_us{
+    color: #fff;
+    font-size: 18px;
+    margin-top: 60%;
+    margin-left: 15%;
+}
+
+.contact_us p{
+    margin-bottom: 10px;
+}
+.contact_us span{
+    letter-spacing: .5px;
+}
+
+.contact_us span:hover{
+    color: #15bcd1;
+}
+
+/*sets the position of the .textportion element to relative and the 
+position of all .featuretext elements to absolute, also sets the top 
+and left properties of all .featuretext elements to 0, meaning that
+they will be positioned at the top-left corner of the .textportion element.*/
+.textportion {
+    position: relative;
+}
+
+.featuretext {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10%;
+    font-size: larger;
+    letter-spacing: 1px;
+}
+
+
+.title {
+    margin: 3% 0px;
+    font-size: 30px;
+}
+
+.slider {
+    position: relative;
+    background: #000116;
+    width: 500px;
+    max-height: 500px;
+    margin: 10px;
+
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.slider .slide.active {
+    clip-path: circle(150% at 0 50%);
+    transition: 2s;
+}
+
+.slider .slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.navigation {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slider:hover .navigation {
+    opacity: 1;
+}
+
+.prev-btn,
+.next-btn {
+    z-index: 999;
+    font-size: 2em;
+    color: #222;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev-btn {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.next-btn {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.navigation-visibility {
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-visibility .slide-icon {
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.5);
+    width: 20px;
+    height: 10px;
+    transform: translateY(-50px);
+    margin: 0 6px;
+    border-radius: 2px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+}
+
+.navigation-visibility .slide-icon.active {
+    background: #4285F4;
+}
+
+@media (max-width: 900px) {
+    .slider {
+        width: 100%;
+    }
+
+    .slider .slide .info {
+        position: relative;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .slider .slide .info h2 {
+        font-size: 1.8em;
+        line-height: 40px;
+    }
+
+    .slider .slide .info p {
+        font-size: 0.9em;
+    }
+}
+
+footer{
+    color:#fff;
+    font-family: "Montserrat", sans-serif;
+    padding-left: 40px;
+    padding-top: 40px;
+    text-align: center;
+}
