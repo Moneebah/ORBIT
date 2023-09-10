@@ -21,7 +21,7 @@ ORBIT is an intuitive 3D interactive web application that provides a comprehensi
 
 # FAQ and Features page
 ![1690398906657](https://github.com/Moneebah/ORBIT/assets/129015993/a5cd8c98-cd22-4966-a324-02c87747888f)
-![1690398906657](https://github.com/Moneebah/ORBIT/assets/129015993/ca92bcaf-5c0e-4e2d-a21f-b9a42b0478a5)
+![1690398889446](https://github.com/Moneebah/ORBIT/assets/129015993/5468ceaf-1169-496c-9b07-678991e8178d)
 
 
 
