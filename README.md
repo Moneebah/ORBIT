@@ -13,10 +13,12 @@ ORBIT is an intuitive 3D interactive web application that provides a comprehensi
 
 # Dynamic main webpage
 -CaesiumJS used to incorporate the fully functional and dynamic globe that rotates to the required country once clicked and then all the relevant D3.js visualization of economic indicators appear dynamically for each country
+
 ![1690398958771](https://github.com/Moneebah/ORBIT/assets/129015993/8a966647-3f93-48c3-9ce6-844be27c1768)
 
 # Best Business Suggestion Form
 -User enters their preferences through the drop down form and then using the preferences as well as all indicators stored in the db, the express server incorporates a rule-based system to generate the country that best suits the user's preferences
+
 ![1690398935001](https://github.com/Moneebah/ORBIT/assets/129015993/7a39639a-40fe-4f43-af70-48a3dc76e12e)
 
 # FAQ and Features page
